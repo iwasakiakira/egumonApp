@@ -37,7 +37,7 @@ class ResultViewController: UIViewController{
             print(monsterdictionary)
             let next = storyboard?.instantiateViewController(withIdentifier: "Library") as! LibraryViewController
             present(next, animated: true, completion: nil)
-            UserDefaults.standard.dictionary(forKey: "add")
+            UserDefaults.standard.set(dictionaryNum!, forKey: "add")
             
             
         }

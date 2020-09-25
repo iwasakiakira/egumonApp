@@ -30,7 +30,7 @@ class NurturingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(monsterDictionary)
+        print(monsterArray)
         ActionCountLabel.text = " ActionCount:\(ActionCount)"
     }
     
@@ -132,7 +132,7 @@ class NurturingViewController: UIViewController {
     func moveDictionary(){
         let userDefaults = UserDefaults.standard
         if userDefaults.object(forKey: "Library") != nil{
-            monsterDictionary = userDefaults.object(forKey: "Library") as! [String]
+            monsterArray = userDefaults.object(forKey: "Library") as! [String]
         }
     }
     
@@ -174,7 +174,7 @@ class NurturingViewController: UIViewController {
     
     
     //    表示させる画像(モンスター)と番号を登録する｡
-    var monsterDictionary:[String] = [
+    var monsterArray:[String] = [
         "a", /* アクション0*/
         "b",
         "c",

@@ -17,7 +17,7 @@ class LibraryViewController: UIViewController,UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(RmonsterDictionary)
+        print(monsterDictionary)
         libraryTableView.delegate = self
         libraryTableView.dataSource = self
     }
