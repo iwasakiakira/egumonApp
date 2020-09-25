@@ -30,17 +30,18 @@ class LibraryViewController: UIViewController,UITableViewDataSource, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        キーで保存されたほにゃららを取り出す
-        if UserDefaults.standard.object(forKey: "Library") != nil{
-            RmonsterDictionary = UserDefaults.standard.object(forKey: "Library") as! [Int:String]
+        if UserDefaults.standard.object(forKey: "add") != nil{
+            monsterDictionary = UserDefaults.standard.object(forKey: "add") as! [Int:String]
+            
+            func viewDidAppear() {
+                self.libraryTableView.reloadData()
+            }
         }
+        
     }
     //    表示させる画像(モンスター)と番号を登録する｡
-    var monsterDictionary:[Int:String] = [
-        0001:"a",
-        0002:"b",
-        0003:"c",
-        0004:"d"
-    ]
+    var monsterDictionary:[Int:String] = [:]
+    
     
     var monsterDictionaryNum:[String] = [
         "0001",
@@ -56,16 +57,19 @@ class LibraryViewController: UIViewController,UITableViewDataSource, UITableView
     
 //    セルの個数を指定するデリゲートメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
+        return monsterDictionary.count
+        }
+        
 
     //    セルに値を設定するデータソースメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        // セルを取得する
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         // セルに表示する値を設定する
+        
         cell.textLabel!.text = monsterDictionary[indexPath.row]
         return cell
+        
     }
     
     
